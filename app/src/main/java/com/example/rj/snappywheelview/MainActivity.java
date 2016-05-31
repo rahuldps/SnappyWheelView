@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     pager = (SnappyViewPager) findViewById(R.id.pager);
     pager.setPageMargin((int) (-1 * PAGER_MARGIN));
     pager.setViewSize(PAGER_VIEW_SIZE);
-    pager.setOffscreenPageLimit(3);
+    pager.setOffscreenPageLimit(6);
     Utils.setCurrentItemInViewPager(pager, currentPage, false);
     adapter = new SnappyPagerAdapter(this);
     adapter.setViewSize(PAGER_VIEW_SIZE);

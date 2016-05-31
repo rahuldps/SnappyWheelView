@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -35,6 +34,7 @@ public class SnappyViewPager extends ViewPager {
   private OnPageChangeListener pageChangeListener = new OnPageChangeListener() {
     @Override
     public void onPageScrolled(int position, float positionOffset, int offsetPixels) {
+
       if (position + 1 == currentPage) { // scrolling to next page
         if (currentPage > 0) {
           setUpTextAttrs(currentPage - 1, (1 - positionOffset) * 1 + 1, Utils.blendColors(
@@ -122,7 +122,6 @@ public class SnappyViewPager extends ViewPager {
 
   @Override
   public boolean onTouchEvent(MotionEvent event) {
-    Log.w("count", " " + getAdapter().getCount());
 
     if (event.getAction() == MotionEvent.ACTION_DOWN) {
       xdrop = event.getX();
@@ -159,14 +158,15 @@ public class SnappyViewPager extends ViewPager {
   }
 
   protected void setUpTextAttrs(int pageIndex, float scale, int color) {
-    View parentView = this.getChildAt(pageIndex);
-    if (parentView == null) {
-      Log.w("hahaha", " " + pageIndex);
-    }
+
+
+    View parentView =getChildAt(pageIndex);
     TextView textView = (TextView) parentView.findViewById(R.id.inner_view);
     textView.setTextColor(color);
     textView.setScaleX(scale);
     textView.setScaleY(scale);
+
+
   }
 
   public void setViewSize(double pager_Size) {

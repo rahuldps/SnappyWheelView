@@ -3,7 +3,6 @@ package com.example.rj.snappywheelview;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +31,6 @@ public class SnappyPagerAdapter extends PagerAdapter {
     data.add("3");
     data.add("4");
     data.add("5");
-    data.add("6");
-    data.add("7");
-    data.add("8");
-    data.add("9");
   }
 
 
@@ -68,7 +63,6 @@ public class SnappyPagerAdapter extends PagerAdapter {
   @SuppressLint("InflateParams")
   @Override
   public Object instantiateItem(ViewGroup container, int position) {
-    Log.w("instantiate item", " " + position);
     View cardView = inflater.inflate(R.layout.card, null, false);
     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
         pager_size, ViewGroup.LayoutParams.WRAP_CONTENT);
